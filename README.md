@@ -22,8 +22,8 @@ Your mission is to step into the Oval Office and convince him to drop this tax t
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/PeterPedegru/OpenGradientSMT.git
-   cd OpenGradientSMT
+   git clone https://github.com/PeterPedegru/OpenGradientTaxes.git
+   cd OpenGradientTaxes
    ```
 
 2. **Backend Setup**

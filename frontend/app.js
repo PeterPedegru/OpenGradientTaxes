@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:8000/api/chat';
+const API_URL = 'https://cancel-the-crypto-taxes.onrender.com/api/chat';
 
 // UI Elements
 const chatBox = document.getElementById('chatBox');

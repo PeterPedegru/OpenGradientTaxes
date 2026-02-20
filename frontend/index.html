@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cancel the Crypto Tax</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=Roboto:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.halo.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="vanta-bg" class="background-effects"></div>
+
+    <!-- Screen 1: Language Selection -->
+    <div id="langScreen" class="screen active">
+        <div class="glass-card text-center fade-in-up">
+            <h1 class="logo-text">Cancel the Crypto Tax</h1>
+            <p class="subtitle" style="margin-bottom: 32px; color: var(--text-secondary);">Select your language /
+                Выберите язык</p>
+
+            <div class="lang-options">
+                <button class="glass-btn btn-lg" onclick="selectLanguage('en')">
+                    🇺🇸 English
+                </button>
+                <button class="glass-btn btn-lg" onclick="selectLanguage('ru')">
+                    🇷🇺 Русский
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Screen 2: Intro / Rules -->
+    <div id="introScreen" class="screen">
+        <div class="glass-card text-center fade-in-up">
+            <div class="trump-photo-large">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/56/Donald_Trump_official_portrait.jpg"
+                    alt="Donald Trump">
+            </div>
+            <h2 id="introTitle" class="heading" style="margin: 16px 0;">Your Mission</h2>
+            <p id="introText" class="body-text"
+                style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 32px;">
+                <!-- Text filled by JS based on language -->
+            </p>
+            <button id="startBtn" class="primary-btn pulse-glow" onclick="startGame()">Start Game</button>
+        </div>
+    </div>
+
+    <!-- Screen 3: Chat Game -->
+    <div id="gameScreen" class="screen">
+        <div class="container fade-in">
+            <!-- Main Chat Area -->
+            <main class="chat-section glass-panel">
+                <header class="chat-header blur-header">
+                    <div class="trump-avatar">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/56/Donald_Trump_official_portrait.jpg"
+                            alt="Donald Trump">
+                    </div>
+                    <div class="header-info">
+                        <h1 id="chatHeaderName">Donald J. Trump</h1>
+                        <span id="chatHeaderStatus" class="status">Online</span>
+                    </div>
+                </header>
+
+                <div id="chatBox" class="chat-box">
+                    <div class="message system-intro">
+                        <p id="missionText"><strong>Mission:</strong> The President wants to impose a 90% tax on all
+                            crypto. Convince him it's a terrible idea. Be patriotic, appeal to his ego, talk business.
+                        </p>
+                    </div>
+                    <!-- Messages will appear here -->
+                </div>
+
+                <div id="typingIndicator" class="typing-indicator hidden">
+                    <span id="typingText">Trump is typing</span><span>.</span><span>.</span><span>.</span>
+                </div>
+
+                <div class="input-area blur-footer" style="position: relative;">
+                    <div id="inactivityTooltip" class="inactivity-tooltip">
+                        <span id="tooltipText"></span>
+                    </div>
+                    <textarea id="userInput" rows="1" placeholder="Mr. President, hear me out..."
+                        autocomplete="off"></textarea>
+                    <button id="sendBtn" class="send-btn liquid-btn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="22" y1="2" x2="11" y2="13"></line>
+                            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                        </svg>
+                    </button>
+                </div>
+            </main>
+
+            <!-- Sidebar for TEE proofs -->
+            <aside class="proof-section glass-panel">
+                <div class="proof-header blur-header">
+                    <h2 id="proofTitle">⛓️ On-Chain TEE Proofs</h2>
+                    <p id="proofSubtitle">Powered by <img src="logo.png" alt="OpenGradient"
+                            style="height: 16px; vertical-align: text-bottom; margin: 0 4px; border-radius: 4px;"></p>
+                    <div class="tooltip">
+                        <span class="info-icon">i</span>
+                        <span id="proofTooltip" class="tooltiptext glass-tooltip">Every response is cryptographically
+                            signed and executed in a Trusted Execution Environment. 100% fair play, no server
+                            manipulation.</span>
+                    </div>
+                </div>
+                <div id="proofLog" class="proof-log">
+                    <div id="emptyProofMsg" class="empty-proofs fade-in">Send a message to generate verification proofs.
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <!-- Win Modal -->
+    <div id="winModal" class="modal hidden">
+        <div class="modal-content glass-card scale-up">
+            <h2 id="winTitle" class="gradient-text">🎉 TAX CANCELLED! 🎉</h2>
+            <p id="winDesc">You did it! You convinced Donald Trump to drop the 90% crypto tax.</p>
+            <p id="winQuote" class="meme-text">"You're a brilliant person, tremendous. We're going to make crypto great
+                again!"</p>
+            <button id="restartBtn" class="primary-btn" onclick="location.reload()">Play Again</button>
+        </div>
+    </div>
+
+    <!-- Confetti Library -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
